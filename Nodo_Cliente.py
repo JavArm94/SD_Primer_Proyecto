@@ -254,18 +254,18 @@ if __name__ == "__main__":
                             print("Posición inválida.")
                     else:
                         # actualiza instantáneamente
-                        tiempo_restante = max(0, 20 - segundos_esperando)
+                        tiempo_restante = max(0, 40 - segundos_esperando)
                         print(f"Esperando jugada del rival... (Victoria automática en {tiempo_restante}s)   ", end="\r")
                         
                         segundos_esperando += 2
-                        if segundos_esperando >= 20:
+                        if segundos_esperando >= 40:
                             res_reclamo = enviar_solicitud(ns_host, nombre_cliente, "RECLAMAR_TIEMPO", [mi_token, id_mesa])
                             if res_reclamo and "VICTORIA" in res_reclamo:
                                 # vencido el tiempo de gracia gana el que sigue
                                 # conectado y se cierra la sesion no tenia sentido
                                 # ofrecerle revancha a un rival que ya no esta asi
                                 # que se libera la mesa y se vuelve al menu
-                                print("\n[!] ¡Ganaste! El rival no volvió dentro de los 20 segundos de gracia.")
+                                print("\n[!] ¡Ganaste! El rival no volvió dentro de los 40 segundos de gracia.")
                                 enviar_solicitud(ns_host, nombre_cliente, "ABANDONAR", [mi_token, id_mesa])
                                 break
                             else:
