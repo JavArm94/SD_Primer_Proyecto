@@ -103,7 +103,7 @@ def enviar_solicitud(ns_host, nombre_cliente, operacion, argumentos):
     # del cluster": recien cuando se agotaron los 5 intentos. en el primer
     # timeout no avisamos nada porque puede ser solo la eleccion del
     # primario resolviendose sola en un par de segundos
-    print("[!] No se pudo contactar al servidor tras varios intentos (puede haber una elección de primario en curso).")
+    print("[!] No se pudo contactar al servidor tras varios intentos.")
     return None
 
 LINEAS_GANADORAS = [(0, 1, 2), (3, 4, 5), (6, 7, 8),
