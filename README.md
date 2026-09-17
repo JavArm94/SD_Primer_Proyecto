@@ -35,7 +35,7 @@ Te pedirá tu ID (1, 2 o 3), la IP del name server y los IDs de los otros nodos.
 python Nodo_Cliente.py
 ```
 
-Ingresás la IP (por ejemplo `localhost`) y tu nombre. Entrarás al menú principal con las opciones de jugar u observar.
+Ingresás tu nombre y entrarás al menú principal con las opciones de jugar u observar.
 
 ### 1.3 Cómo jugar
 
@@ -44,12 +44,12 @@ Al entrar al menú, seleccionás "1. Jugar". El sistema te ubicará en una mesa 
 Dentro de la partida:
 
 - Escribís un número del 1 al 9 para colocar tu ficha.
-- Si el rival tarda más de 20 segundos, el cliente reclama la victoria por abandono solo: la consola muestra la cuenta regresiva y dispara `RECLAMAR_TIEMPO` automáticamente.
+- Si el rival tarda más de 40 segundos, el cliente reclama la victoria por abandono solo: la consola muestra la cuenta regresiva y dispara `RECLAMAR_TIEMPO` automáticamente.
 - Presionás `Ctrl+C` para salir de la observación o cerrar el programa abruptamente.
 
 ### 1.4 Desconexiones y tiempo de gracia
 
-Si un jugador pierde la conexión durante la partida (se le cae internet, cierra la consola con `Ctrl+C`), el clúster **no** se entera ni destruye la mesa: la partida queda viva y el jugador tiene 20 segundos de gracia para volver. Si vuelve a ejecutar el cliente con **exactamente el mismo nombre**, el servidor lo reconoce por su token (MD5 del nombre) y lo reengancha a la misma mesa, con el tablero como lo dejó.
+Si un jugador pierde la conexión durante la partida (se le cae internet, cierra la consola con `Ctrl+C`), el clúster **no** se entera ni destruye la mesa: la partida queda viva y el jugador tiene 40 segundos de gracia para volver. Si vuelve a ejecutar el cliente con **exactamente el mismo nombre**, el servidor lo reconoce por su token (MD5 del nombre) y lo reengancha a la misma mesa, con el tablero como lo dejó.
 
 Vencido ese plazo sin que vuelva, el cliente del rival reclama automáticamente la victoria por abandono, se cierra la sesión y la mesa queda libre para otros jugadores. Y si los dos jugadores se desconectaron, el primario recicla la mesa por inactividad.
 
