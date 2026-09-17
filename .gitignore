@@ -1,0 +1,12 @@
+venv/
+olds/
+.env
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+
+estado_nodo_1.json
+estado_nodo_2.json
+estado_nodo_3.json
+Nodo_ServidorOld.py
